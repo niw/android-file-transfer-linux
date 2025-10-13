@@ -2,6 +2,14 @@
 name = "android-file-transfer-linux"
 version = "4.6"
 
+[project.scripts]
+aftl-cli = "aftl_cli:main"
+
+[project.optional-dependencies]
+cli = [
+    "InquirerPy ~= 0.3.4"
+]
+
 [build-system]
 requires = ["scikit-build-core", "pybind11"]
 build-backend = "scikit_build_core.build"

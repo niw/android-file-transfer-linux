@@ -8,4 +8,5 @@ target_link_libraries(aftl PRIVATE ${LIB_NAME})
 # Set component to only install this target `.so` file.
 # See `pyproject.toml`.
 install(FILES aftl.pyi DESTINATION . COMPONENT aftl)
+install(FILES example/menu.py DESTINATION . RENAME aftl_cli.py COMPONENT aftl)
 install(TARGETS aftl DESTINATION . COMPONENT aftl)

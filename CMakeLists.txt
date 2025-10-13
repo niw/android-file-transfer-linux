@@ -1,4 +1,4 @@
-cmake_minimum_required(VERSION 3.10)
+cmake_minimum_required(VERSION 3.15)
 project(android-file-transfer)
 
 set (CMAKE_CXX_STANDARD 11)
@@ -25,7 +25,7 @@ message(STATUS "building for ${CMAKE_SYSTEM_NAME}")
 
 if (${CMAKE_SYSTEM_NAME} MATCHES "Darwin")
 	set(USB_BACKEND_DARWIN TRUE)
-	set(CMAKE_OSX_DEPLOYMENT_TARGET 10.13)
+	set(CMAKE_OSX_DEPLOYMENT_TARGET 15)
 	find_program(OTOOL_BIN otool)
 endif()
 

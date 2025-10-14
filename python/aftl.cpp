@@ -109,6 +109,7 @@ PYBIND11_MODULE(aftl, m) {
 
 #define VALUE(TYPE, NAME) .value(#NAME, TYPE :: NAME)
 #define DEF_READONLY(TYPE, NAME) .def_readonly(#NAME, & TYPE :: NAME )
+#define DEF_READWRITE(TYPE, NAME) .def_readwrite(#NAME, & TYPE :: NAME )
 
 	py::enum_<ObjectFormat>(m, "ObjectFormat", "MTP Object format for querying specific types of media, or Any")
 #define ENUM_VALUE(NAME, _) VALUE(ObjectFormat, NAME)
@@ -181,9 +182,9 @@ PYBIND11_MODULE(aftl, m) {
 
 	py::class_<msg::ObjectInfo>(m, "ObjectInfo").
 		def(py::init<>())
-		DEF_READONLY(msg::ObjectInfo, ObjectFormat)
+		DEF_READWRITE(msg::ObjectInfo, ObjectFormat)
 		DEF_READONLY(msg::ObjectInfo, ProtectionStatus)
-		DEF_READONLY(msg::ObjectInfo, ObjectCompressedSize)
+		DEF_READWRITE(msg::ObjectInfo, ObjectCompressedSize)
 		DEF_READONLY(msg::ObjectInfo, ThumbFormat)
 		DEF_READONLY(msg::ObjectInfo, ThumbCompressedSize)
 		DEF_READONLY(msg::ObjectInfo, ThumbPixWidth)
@@ -195,7 +196,7 @@ PYBIND11_MODULE(aftl, m) {
 		DEF_READONLY(msg::ObjectInfo, AssociationType)
 		DEF_READONLY(msg::ObjectInfo, AssociationDesc)
 		DEF_READONLY(msg::ObjectInfo, SequenceNumber)
-		DEF_READONLY(msg::ObjectInfo, Filename)
+		DEF_READWRITE(msg::ObjectInfo, Filename)
 		DEF_READONLY(msg::ObjectInfo, CaptureDate)
 		DEF_READONLY(msg::ObjectInfo, ModificationDate)
 		DEF_READONLY(msg::ObjectInfo, Keywords)

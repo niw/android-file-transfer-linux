@@ -298,7 +298,7 @@ PYBIND11_MODULE(aftl, m) {
 
 		def("get_object_storage", &Session::GetObjectStorage).
 		def("get_object_parent", &Session::GetObjectParent).
-		def("delete_object", &Session::DeleteObject).
+		def("delete_object", &Session::DeleteObject, py::arg("object_id"), py::arg("timeout") = static_cast<int>(Session::DefaultTimeout)).
 
 		def("edit_object_supported", &Session::EditObjectSupported).
 		def("get_object_property_list_supported", &Session::GetObjectPropertyListSupported).

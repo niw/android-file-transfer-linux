@@ -264,7 +264,7 @@ PYBIND11_MODULE(aftl, m) {
 				result.push_back(oid);
 			}
 			return result;
-		}, py::arg("storageId"), py::arg("objectFormat") = ObjectFormat::Any, py::arg("parent") = Session::Root, py::arg("timeout") = static_cast<int>(Session::LongTimeout)).
+		}, py::arg("storage_id"), py::arg("object_format") = ObjectFormat::Any, py::arg("parent") = Session::Root, py::arg("timeout") = static_cast<int>(Session::LongTimeout)).
 
 		def("get_object_info", &Session::GetObjectInfo).
 		def("get_object_properties_supported", [](Session *self, ObjectFormat format) -> std::vector<ObjectProperty> {
